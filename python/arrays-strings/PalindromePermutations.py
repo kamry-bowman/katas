@@ -14,13 +14,8 @@ def checkPalindromePerm(string):
     if vector == 0:
         return True
 
-    odds = 0
-    while vector > 0:
-        if vector & 1:
-            odds += 1
-        vector = vector >> 1
-
-    return odds < 2
+    # check for just one set bit
+    return vector & (vector - 1) == 0
 
 
 if __name__ == "__main__":
